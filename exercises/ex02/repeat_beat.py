@@ -13,6 +13,6 @@ i: int = 0
 if count <= 0:
     print("No beat...")
 else:
-    while i < count:
-        print(beat)
+    while i < 1:
+        print(str(beat + " ") * count)
         i = i + 1
