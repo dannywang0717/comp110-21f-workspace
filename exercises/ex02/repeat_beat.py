@@ -14,5 +14,5 @@ if count <= 0:
     print("No beat...")
 else:
     while i < 1:
-        print(str(beat + " ") * count)
+        print(str(beat + " ") * (count - 1) + beat)
         i = i + 1
