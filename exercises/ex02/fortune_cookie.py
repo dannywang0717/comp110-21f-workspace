@@ -13,4 +13,15 @@ from random import randint
 
 
 # Begin your solution here...
-
+i: int = 0
+print("Your fortune cookie says...")
+num = randint(1, 4)
+if num == 1:
+    print("A fresh start will put you on your way.")      
+elif num == 2:
+    print("You should def go for it")
+elif num == 3:
+    print("Follow what calls you.")
+elif num == 4:
+    print("To be found, stop hiding.")
+print("Now, go spread positive vibes!")
