@@ -1,21 +1,18 @@
 """Creat your own adventure project."""
 __author__ = "730490041"
 import random
+bye = "\U0001F917"
+player = str("")
+points = 0
 
 
-def main():
-    global player
-    global points
-    global bye
-    bye = "\U0001F917"
-    player = str("")
-    points = 0
+def main() -> None:
     greet()
     mainmenu()
     return None
 
 
-def greet():
+def greet() -> None:
     """Greets the player and ask for name."""
     print("Welcome!!! This is a game to see how many points you can get which can be used in the Emoji Printing Shop")
     global player
@@ -23,7 +20,8 @@ def greet():
     return None
 
 
-def mainmenu():
+def mainmenu() -> None:
+    """Pathway and Gameloop."""
     global points
     print("Where do you want to go?")
     path = int(input("Enter 1 to start Coin Flip Game, Enter 2 to start Number Game, Enter 3 to Enter Emoji Printing Shop, Enter 4 to Exit Game  "))
@@ -39,7 +37,7 @@ def mainmenu():
         print("Goodbye! " + bye)
 
 
-def coingame():
+def coingame() -> None:
     """A coin game that counts how many guesses are correct in a row."""
     i: int = 0
     global points
@@ -57,7 +55,8 @@ def coingame():
     return None
             
 
-def numbergame():
+def numbergame() -> None:
+    """A number game to test the ability of mutplication (1-9) * (1-9)."""
     i: int = 0
     global points
     while i < 1:
@@ -71,9 +70,11 @@ def numbergame():
             i = i + 1
             print(f"Incorrect you now have {points} Total Points")
             playagain()
-        
+    return None
+
 
 def shop(a: int) -> int:
+    """Emoji printing shop that allows the points earned to be used."""
     lion: str = "\U0001F981"
     turtle: str = "\U0001F422"
     dragon: str = "\U0001F409"
@@ -101,13 +102,14 @@ def shop(a: int) -> int:
     return points
 
 
-def playagain():
-    """Ask if the user wants to play again."""
+def playagain() -> None:
+    """Ask if the user wants to play again. Game Loop."""
     answer = input("Play again? Y or N ")
     if answer == "Y":
         mainmenu()
     elif answer == "N":
         print("Goodbye!" + bye)
+    return None
 
 
 if __name__ == "__main__":
