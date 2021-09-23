@@ -4,31 +4,12 @@ import random
 BYE_EMOJI: str = "\U0001F917"
 player: str = ""
 points: int = 0
-answer: str = ""
 
 
 def main() -> None:
     """Main function."""
     greet()
-    global points
-    global answer
-    print("Where do you want to go?")
-    while answer != ("N"):
-        path = int(input("Enter 1 to start Coin Flip Game, Enter 2 to start Number Game, Enter 3 to Enter Emoji Printing Shop, Enter 4 to Exit Game  "))
-        if (path == 1):
-            coingame()
-            answer = input("Main Menu? Y or N ")
-        elif (path == 2):
-            numbergame()
-            answer = input("Main Menu? Y or N ")
-        elif (path == 3):
-            shop(points)
-            print(f"You have {points} Total Points")
-            answer = input("Main Menu? Y or N ")
-        elif (path == 4):
-            answer = "N"
-    print("Goodbye! " + BYE_EMOJI)
-
+    mainmenu()
     return None
 
 
@@ -38,6 +19,23 @@ def greet() -> None:
     global player
     player = (input("First, What is your name? "))
     return None
+
+
+def mainmenu() -> None:
+    """Pathway and Gameloop."""
+    global points
+    print("Where do you want to go?")
+    path = int(input("Enter 1 to start Coin Flip Game, Enter 2 to start Number Game, Enter 3 to Enter Emoji Printing Shop, Enter 4 to Exit Game  "))
+    if (path == 1):
+        coingame()
+    elif (path == 2):
+        numbergame()
+    elif (path == 3):
+        shop(points)
+        print(f"You have {points} Total Points")
+        mainmenu()
+    elif (path == 4):
+        print("Goodbye! " + BYE_EMOJI)
 
 
 def coingame() -> None:
@@ -54,6 +52,7 @@ def coingame() -> None:
             i = i + 1
             print(player + " You are Incorrect!")
     print(f"You have {points} Total Points")
+    playagain()
     return None
             
 
@@ -71,6 +70,7 @@ def numbergame() -> None:
         else:
             i = i + 1
             print(f"Incorrect you now have {points} Total Points")
+            playagain()
     return None
 
 
@@ -101,6 +101,16 @@ def shop(a: int) -> int:
         else:
             print("You dont have enough with your budget")
     return points
+
+
+def playagain() -> None:
+    """Ask if the user wants to play again. Game Loop."""
+    answer = input("Play again? Y or N ")
+    if answer == "Y":
+        mainmenu()
+    elif answer == "N":
+        print("Goodbye!" + BYE_EMOJI)
+    return None
 
 
 if __name__ == "__main__":
