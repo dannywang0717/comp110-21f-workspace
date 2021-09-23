@@ -1,12 +1,13 @@
-"""Creat your own adventure project."""
+"""Create your own adventure project."""
 __author__ = "730490041"
 import random
-bye = "\U0001F917"
-player = str("")
-points = 0
+BYE_EMOJI: str = "\U0001F917"
+player: str = ""
+points: int = 0
 
 
 def main() -> None:
+    """Main function."""
     greet()
     mainmenu()
     return None
@@ -30,11 +31,11 @@ def mainmenu() -> None:
     elif (path == 2):
         numbergame()
     elif (path == 3):
-        shop(int(input("How many points do you want to spend? ")))
+        shop(points)
         print(f"You have {points} Total Points")
         mainmenu()
     elif (path == 4):
-        print("Goodbye! " + bye)
+        print("Goodbye! " + BYE_EMOJI)
 
 
 def coingame() -> None:
@@ -81,7 +82,7 @@ def shop(a: int) -> int:
     global points
     if a > points:
         print("You dont have that many points")
-    while (a <= points) & (a > 0):
+    while (a > 0):
         print(lion + " = 1 point" + turtle + " = 2 points" + dragon + " = 3 points")
         emoji: int = int(input("What emoji do you want to purchase? 1 for lion   2 for turtle   3 for dragon    "))
         if (emoji <= a):
@@ -108,7 +109,7 @@ def playagain() -> None:
     if answer == "Y":
         mainmenu()
     elif answer == "N":
-        print("Goodbye!" + bye)
+        print("Goodbye!" + BYE_EMOJI)
     return None
 
 
